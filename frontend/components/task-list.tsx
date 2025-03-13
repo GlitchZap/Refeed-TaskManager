@@ -84,7 +84,7 @@ export default function TaskList() {
       setLoading(true);
       
       // Build API URL with query parameters from the URL
-      let apiUrl = '/api/tasks';
+      let apiUrl = '/tasks';
       const params = new URLSearchParams();
       
       // Get filter values from URL parameters
@@ -161,7 +161,7 @@ export default function TaskList() {
     
     try {
       // Send update to the API
-      const response = await fetch(`/api/tasks`, {
+      const response = await fetch(`/tasks`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -204,7 +204,7 @@ export default function TaskList() {
     
     try {
       // Send delete request to the API
-      const response = await fetch(`/api/tasks`, {
+      const response = await fetch(`/tasks`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -239,7 +239,7 @@ export default function TaskList() {
         <div className="mb-6 flex justify-end">
           <Link 
             href="/tasks/new" 
-            className="flex items-center px-4 py-2 bg-gradient-to-r from-fuchsia-600 to-pink-600 text-white rounded-md hover:from-fuchsia-700 hover:to-pink-700 transition-all shadow-lg hover:shadow-pink-500/30"
+            className="flex items-center px-4 py-2 bg-gradient-to-r from-fuchsia-600 to-pink-600 text-white rounded-md hover:from-fuchsia-700 hover:to-pink-700 transition-all shadow-lg hover:shadow-fuchsia-500/30"
           >
             <Plus size={18} className="mr-2" /> New Task
           </Link>
@@ -269,7 +269,7 @@ export default function TaskList() {
       <div className="mb-6 flex justify-end">
         <Link 
           href="/tasks/new" 
-          className="flex items-center px-4 py-2 bg-gradient-to-r from-fuchsia-600 to-pink-600 text-white rounded-md hover:from-fuchsia-700 hover:to-pink-700 transition-all shadow-lg hover:shadow-pink-500/30"
+          className="flex items-center px-4 py-2 bg-gradient-to-r from-fuchsia-600 to-pink-600 text-white rounded-md hover:from-fuchsia-700 hover:to-pink-700 transition-all shadow-lg hover:shadow-fuchsia-500/30"
         >
           <Plus size={18} className="mr-2" /> New Task
         </Link>
@@ -285,7 +285,7 @@ export default function TaskList() {
           tasks.map((task) => (
             <Card 
               key={task.id} 
-              className="p-5 hover:shadow-xl transition-all duration-300 border-none shadow-lg bg-gradient-to-br from-gray-800/80 to-gray-900/80 backdrop-blur-lg hover:from-gray-800 hover:to-gray-900 hover:scale-[1.02] cursor-pointer group"
+              className="p-5 hover:shadow-xl transition-all duration-300 border-none shadow-lg bg-gradient-to-br from-gray-800/80 to-gray-900/80 backdrop-blur-lg hover:from-gray-800 hover:to-gray-900"
               onClick={() => openEditModal(task)}
             >
               <div className="flex justify-between items-start">
@@ -376,7 +376,6 @@ export default function TaskList() {
             
             {/* Task metadata */}
             <div className="mt-6 pt-4 border-t border-violet-700/30 text-xs text-fuchsia-200/70 space-y-2">
-            // Continue from task metadata
               <div className="flex items-center">
                 <User size={14} className="mr-2 text-fuchsia-400" /> 
                 <span>Created by: {selectedTask.createdBy || 'Unknown'}</span>
@@ -403,7 +402,7 @@ export default function TaskList() {
               <button
                 type="button"
                 onClick={() => setIsEditModalOpen(false)}
-                className="px-4 py-2 text-sm bg-transparent border border-violet-600 text-violet-400 rounded-md hover:bg-violet-900/30 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-violet-500 transition-all"
+                className="px-4 py-2 text-sm bg-transparent border border-violet-600 text-violet-400 rounded-md hover:bg-violet-900/30 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-fuchsia-500 transition-all"
               >
                 Cancel
               </button>
